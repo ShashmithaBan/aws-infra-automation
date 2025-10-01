@@ -12,7 +12,7 @@ module "igw" {
 module "subnet" {
   source     = "./modules/subnet"
   vpc_id     = module.vpc.vpc_id
-  cidr_block = var.cidr_block
+  cidr_block = var.subnet_cidr
   
 }
 
@@ -20,5 +20,12 @@ module "route_table" {
   source    = "./modules/route_table"
   vpc_id    = module.vpc.vpc_id
   igw_id    = module.igw.igw_id
+  subnet_id = module.subnet.subnet_id
+}
+
+module "allow_http_ssh" {
+  source = "./modules/security_group"
+  vpc_id = module.vpc.vpc_id
+  igw_id = module.igw.igw_id
   subnet_id = module.subnet.subnet_id
 }

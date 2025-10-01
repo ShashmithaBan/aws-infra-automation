@@ -3,3 +3,8 @@ variable "cidr_block" {
   type        = string
   
 }
+variable "subnet_cidr" {
+  description = "The CIDR block for the Subnet"
+  type        = string
+  
+}
