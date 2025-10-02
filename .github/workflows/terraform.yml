@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  making the infra:
+  Making_the_infra:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
