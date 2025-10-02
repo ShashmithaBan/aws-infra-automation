@@ -23,9 +23,20 @@ module "route_table" {
   subnet_id = module.subnet.subnet_id
 }
 
-module "allow_http_ssh" {
+module "sg" {
   source = "./modules/security_group"
   vpc_id = module.vpc.vpc_id
   igw_id = module.igw.igw_id
   subnet_id = module.subnet.subnet_id
+}
+
+module "ec2" {
+  source = "./modules/ec2"
+  vpc_id             = module.vpc.vpc_id
+  igw_id             = module.igw.igw_id
+  subnet_id         = module.subnet.subnet_id
+  security_group_ids = module.sg.sg_id
+  ami_id            = var.ami_id
+  instance_type     = var.instance_type
+
 }
