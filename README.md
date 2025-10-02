@@ -70,22 +70,46 @@ dynamodb_table_name  = "terraform-locks"
 ```
 
 ### Files
-	- provider.tf → Configures AWS provider
-	-	backend.tf → Configures Terraform remote backend (uses your S3 + DynamoDB)
-	-	variable.tf → Defines input variables
-	-	terraform.tfvars → Stores variable values (update before apply)
-	-	main.tf → Main infrastructure resources
-	-	output.tf → Exposes output values
+- **provider.tf** → Configures AWS provider  
+- **backend.tf** → Configures Terraform remote backend (uses your S3 + DynamoDB)  
+- **variable.tf** → Defines input variables  
+- **terraform.tfvars** → Stores variable values (update before apply)  
+- **main.tf** → Main infrastructure resources  
+- **output.tf** → Exposes output values  
 
 ## 🔑 GitHub Secrets (Required)
 
-Since this project automates infrastructure using GitHub Actions, you must configure secrets in your repository before running workflows.
+Since this project automates infrastructure using **GitHub Actions**, you must configure secrets in your repository before running workflows.
 
-Go to:
-GitHub Repo → Settings → Secrets and variables → Actions
+Go to:  
+**GitHub Repo → Settings → Secrets and variables → Actions**
 
 Add the following secrets:
-	-	AWS_ACCESS_KEY_ID → Your AWS Access Key
-	-	AWS_SECRET_ACCESS_KEY → Your AWS Secret Key
-	-	SSH_PUBLIC_KEY  → Your AWS Public Key
-  - SSH_PRIVATE_KEY  → Your AWS Private Key
+
+- `AWS_ACCESS_KEY_ID` → Your AWS Access Key  
+- `AWS_SECRET_ACCESS_KEY` → Your AWS Secret Key  
+- `SSH_PUBLIC_KEY` → Your AWS EC2 Key Pair (public key)  
+- `SSH_PRIVATE_KEY` → Your AWS EC2 Key Pair (private key)  
+- `AWS_REGION` → (e.g. `us-east-1`)  
+
+
+## ▶️ Usage
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ShashmithaBan/aws-infra-automation.git
+   cd aws-infra-automation
+   ```
+
+2. **Initialize Terraform:**
+   ```bash
+   terraform init
+   ```
+
+3. **Plan and apply:**
+   ```bash
+   terraform plan
+   terraform apply
+   ```
+
+---

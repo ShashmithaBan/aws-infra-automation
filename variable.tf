@@ -28,3 +28,13 @@ variable "ssh_public_key" {
   type      = string
   sensitive = true
 }
+variable "s3_bucket_name" {
+  description = "The name of the S3 bucket"
+  type        = string
+  
+}
+variable "dynamodb_table_name" {
+  description = "The name of the DynamoDB table"
+  type        = string
+  
+}
