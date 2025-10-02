@@ -36,14 +36,16 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
+        if: github.ref == 'refs/heads/main'
         run: |
-          terraform plan \
+          terraform plan -auto-approve plan.out \
             -var "ssh_private_key=${{ secrets.SSH_PRIVATE_KEY }}" \
             -var "ssh_public_key=${{ secrets.SSH_PUBLIC_KEY }}"
 
       - name: Terraform Apply
+        if: github.ref == 'refs/heads/main'
         run: |
-            terraform plan \
+            terraform apply -auto-approve plan.out \
               -var "ssh_private_key=${{ secrets.SSH_PRIVATE_KEY }}" \
               -var "ssh_public_key=${{ secrets.SSH_PUBLIC_KEY }}"
 
