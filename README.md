@@ -137,7 +137,7 @@ terraform destroy
 
 ---
 
-## Notes
+## 📌 Notes
 
 - Ensure your AWS credentials have sufficient permissions to create the resources.
 - Modify the `user_data` script in `main.tf` to customize EC2 instance provisioning
