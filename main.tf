@@ -38,5 +38,7 @@ module "ec2" {
   security_group_ids = module.sg.sg_id
   ami_id            = var.ami_id
   instance_type     = var.instance_type
+  ssh_private_key   = var.ssh_private_key
+  ssh_public_key    = var.ssh_public_key
 
 }
