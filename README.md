@@ -113,3 +113,34 @@ Add the following secrets:
    ```
 
 ---
+## 📝 Outputs
+
+After a successful apply, Terraform will output useful information such as:
+
+- VPC ID
+- Public subnet IDs
+- Private subnet IDs
+- EC2 instance public IP
+- Security group IDs
+
+Check the `output.tf` file for the full list of outputs.
+
+---
+
+## 🧹 Cleanup
+
+To destroy all resources created by this project, run:
+
+```bash
+terraform destroy
+```
+
+---
+
+## Notes
+
+- Ensure your AWS credentials have sufficient permissions to create the resources.
+- Modify the `user_data` script in `main.tf` to customize EC2 instance provisioning
+- S3 bucket and DynamoDB table must be created manually before running Terraform.
+- Update terraform.tfvars with your AWS region, CIDR ranges, and EC2 instance details before applying.
+-	Do not hardcode AWS keys — always use GitHub Secrets for security.
